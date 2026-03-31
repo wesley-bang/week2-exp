@@ -121,7 +121,7 @@ def integrate_band(df, lo, hi, value_col="spectral_power"):
     sub = df[(df["wavelength_nm"] >= lo) & (df["wavelength_nm"] <= hi)]
     if sub.empty:
         return 0.0
-    return float(np.trapezoid(sub[value_col], sub["wavelength_nm"]))
+    return float(np.trapz(sub[value_col], sub["wavelength_nm"]))
 
 
 def build_combo_values(band_values):
